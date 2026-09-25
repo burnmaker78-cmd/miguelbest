@@ -3,35 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miguel Proxies Dashboard</title>
+    <title>Miguel Proxies</title>
     <style>
         body {
-            background-color: #1e1e2e;
+            background-color: #11111b;
             color: #cdd6f4;
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
         }
-        .card {
-            background: #252538;
-            padding: 30px;
-            border-radius: 15px;
+        .dashboard-container {
+            background-color: #1e1e2e;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 380px;
+            border: 1px solid #313244;
         }
-        h1 { margin-bottom: 5px; color: #ff5555; }
-        p { color: #a6adc8; }
+        .logo-shield {
+            width: 80px;
+            height: 80px;
+            background-color: #ff5555;
+            border-radius: 18px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #11111b;
+            box-shadow: 0 0 20px rgba(255, 85, 85, 0.3);
+        }
+        h1 {
+            margin: 0 0 5px 0;
+            font-size: 28px;
+            letter-spacing: 0.5px;
+        }
+        .subtitle {
+            color: #a6adc8;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 14px 20px;
+            background-color: #313244;
+            border: 2px solid #45475a;
+            border-radius: 12px;
+            color: #cdd6f4;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-bar:focus {
+            border-color: #ff5555;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <img src="index.svg" width="100" height="100" alt="Logo">
+
+    <div class="dashboard-container">
+        <div class="logo-shield">M</div>
         <h1>Miguel Proxies</h1>
-        <p>Private Configuration Dashboard</p>
+        <div class="subtitle">Private Proxy Web Interface</div>
+        <input type="text" class="search-bar" placeholder="Enter URL to browse privately...">
     </div>
+
 </body>
 </html>
