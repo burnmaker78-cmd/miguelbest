@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miguel Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="browser">
+
+```
+    <!-- TOOLBAR -->
+    <div class="toolbar">
+        <div class="nav-buttons">
+            <button id="backBtn" title="Back">←</button>
+            <button id="forwardBtn" title="Forward">→</button>
+            <button id="reloadBtn" title="Reload">⟳</button>
+        </div>
+
+        <div class="address-bar">
+            <span class="lock">🔒</span>
+            <input
+                id="urlInput"
+                type="text"
+                placeholder="Search or enter a URL..."
+                autocomplete="off"
+            >
+        </div>
+
+        <div class="toolbar-buttons">
+            <button id="favoriteBtn" title="Favorite">☆</button>
+            <button id="newTabBtn" title="New Tab">＋</button>
+        </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs" id="tabs">
+        <div class="tab active">
+            <span>🏠</span>
+            <span>Miguel Games</span>
+            <button class="close-tab">×</button>
+        </div>
+
+        <button id="addTab" class="add-tab">＋</button>
+    </div>
+
+    <!-- HOME PAGE -->
+    <main class="home" id="homePage">
+        <div class="glow"></div>
+
+        <section class="hero">
+            <div class="logo">
+                <span class="logo-m">M</span>
+                <span>IGUEL</span>
+            </div>
+
+            <h1>Miguel Games</h1>
+
+            <p class="subtitle">
+                Your gateway to the web.
+            </p>
+
+            <div class="search-container">
+                <span class="search-icon">⌕</span>
+
+                <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Search or enter a URL..."
+                    autocomplete="off"
+                >
+
+                <button id="searchBtn">→</button>
+            </div>
+
+            <div class="quick-links">
+
+                <button
+                    class="quick-link"
+                    data-url="https://www.youtube.com"
+                >
+                    <span>▶</span>
+                    YouTube
+                </button>
+
+                <button
+                    class="quick-link"
+                    data-url="https://discord.com"
+                >
+                    <span>💬</span>
+                    Discord
+                </button>
+
+                <button
+                    class="quick-link"
+                    data-url="https://www.google.com"
+                >
+                    <span>G</span>
+                    Google
+                </button>
+
+                <button class="quick-link">
+                    <span>＋</span>
+                    Add
+                </button>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- IN-APP WEBSITE VIEWER -->
+    <main id="pageView" class="page-view hidden">
+
+        <div class="page-loading" id="pageLoading">
+            <div class="loading-spinner"></div>
+            <p>Loading...</p>
+        </div>
+
+        <iframe
+            id="pageFrame"
+            title="Miguel Games Web Viewer"
+            sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"
+        ></iframe>
+
+    </main>
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+        <span>● Miguel Games</span>
+        <span id="status">Ready</span>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+```
+
+</body>
+</html>
