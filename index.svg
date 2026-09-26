@@ -260,7 +260,7 @@
       const PROXY_SERVER = "https://my-proxy.example.com";
     */
 
-    const PROXY_SERVER = "https://YOUR_PROXY_SERVER";
+    const PROXY_SERVER = "https://miguelbest.onrender.com";
 
     let currentURL = "";
     let historyList = [];
