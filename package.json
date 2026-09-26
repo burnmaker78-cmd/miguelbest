@@ -1,9 +1,11 @@
 {
-  "name": "miguelbest",
+  "name": "svg-proxy",
   "version": "1.0.0",
-  "main": "index.svg",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com"
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
