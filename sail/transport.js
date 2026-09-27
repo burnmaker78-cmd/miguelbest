@@ -22,7 +22,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var main_exports = {};
 __export(main_exports, {
   default: () => NveTransport,
-  epoxyInfo: () => info
+  ep0zyInfo: () => info
 });
 module.exports = __toCommonJS(main_exports);
 
@@ -334,16 +334,16 @@ function wasm_bindgen_424c3764b206e9a4___convert__closures_____invoke___wasm_bin
 }
 var __wbindgen_enum_BinaryType = ["blob", "arraybuffer"];
 var __wbindgen_enum_ReadableStreamType = ["bytes"];
-var EpoxyClientFinalization = typeof FinalizationRegistry === "undefined" ? { register: () => {
+var Ep0zyClientFinalization = typeof FinalizationRegistry === "undefined" ? { register: () => {
 }, unregister: () => {
 } } : new FinalizationRegistry((ptr) => wasm.__wbg_epoxyclient_free(ptr >>> 0, 1));
-var EpoxyClientOptionsFinalization = typeof FinalizationRegistry === "undefined" ? { register: () => {
+var Ep0zyClientOptionsFinalization = typeof FinalizationRegistry === "undefined" ? { register: () => {
 }, unregister: () => {
 } } : new FinalizationRegistry((ptr) => wasm.__wbg_epoxyclientoptions_free(ptr >>> 0, 1));
-var EpoxyHandlersFinalization = typeof FinalizationRegistry === "undefined" ? { register: () => {
+var Ep0zyHandlersFinalization = typeof FinalizationRegistry === "undefined" ? { register: () => {
 }, unregister: () => {
 } } : new FinalizationRegistry((ptr) => wasm.__wbg_epoxyhandlers_free(ptr >>> 0, 1));
-var EpoxyWebSocketFinalization = typeof FinalizationRegistry === "undefined" ? { register: () => {
+var Ep0zyWebSocketFinalization = typeof FinalizationRegistry === "undefined" ? { register: () => {
 }, unregister: () => {
 } } : new FinalizationRegistry((ptr) => wasm.__wbg_epoxywebsocket_free(ptr >>> 0, 1));
 var IntoUnderlyingByteSourceFinalization = typeof FinalizationRegistry === "undefined" ? { register: () => {
@@ -355,7 +355,7 @@ var IntoUnderlyingSinkFinalization = typeof FinalizationRegistry === "undefined"
 var IntoUnderlyingSourceFinalization = typeof FinalizationRegistry === "undefined" ? { register: () => {
 }, unregister: () => {
 } } : new FinalizationRegistry((ptr) => wasm.__wbg_intounderlyingsource_free(ptr >>> 0, 1));
-var EpoxyClient = class {
+var Ep0zyClient = class {
   toJSON() {
     return {
       redirect_limit: this.redirect_limit,
@@ -369,7 +369,7 @@ var EpoxyClient = class {
   __destroy_into_raw() {
     const ptr = this.__wbg_ptr;
     this.__wbg_ptr = 0;
-    EpoxyClientFinalization.unregister(this);
+    Ep0zyClientFinalization.unregister(this);
     return ptr;
   }
   free() {
@@ -442,7 +442,7 @@ var EpoxyClient = class {
   }
    
   connect_websocket(handlers, url, protocols, headers) {
-    _assertClass(handlers, EpoxyHandlers);
+    _assertClass(handlers, Ep0zyHandlers);
     var ptr0 = handlers.__destroy_into_raw();
     const ptr1 = passArrayJsValueToWasm0(protocols, wasm.__wbindgen_malloc);
     const len1 = WASM_VECTOR_LEN;
@@ -463,23 +463,23 @@ var EpoxyClient = class {
   }
    
   constructor(transport, options) {
-    _assertClass(options, EpoxyClientOptions);
+    _assertClass(options, Ep0zyClientOptions);
     var ptr0 = options.__destroy_into_raw();
     const ret = wasm.epoxyclient_new(addHeapObject(transport), ptr0);
     if (ret[2]) {
       throw takeObject(ret[1]);
     }
     this.__wbg_ptr = ret[0] >>> 0;
-    EpoxyClientFinalization.register(this, this.__wbg_ptr, this);
+    Ep0zyClientFinalization.register(this, this.__wbg_ptr, this);
     return this;
   }
 };
-if (Symbol.dispose) EpoxyClient.prototype[Symbol.dispose] = EpoxyClient.prototype.free;
-var EpoxyClientOptions = class {
+if (Symbol.dispose) Ep0zyClient.prototype[Symbol.dispose] = Ep0zyClient.prototype.free;
+var Ep0zyClientOptions = class {
   __destroy_into_raw() {
     const ptr = this.__wbg_ptr;
     this.__wbg_ptr = 0;
-    EpoxyClientOptionsFinalization.unregister(this);
+    Ep0zyClientOptionsFinalization.unregister(this);
     return ptr;
   }
   free() {
@@ -650,16 +650,16 @@ var EpoxyClientOptions = class {
   constructor() {
     const ret = wasm.epoxyclientoptions_new_default();
     this.__wbg_ptr = ret >>> 0;
-    EpoxyClientOptionsFinalization.register(this, this.__wbg_ptr, this);
+    Ep0zyClientOptionsFinalization.register(this, this.__wbg_ptr, this);
     return this;
   }
 };
-if (Symbol.dispose) EpoxyClientOptions.prototype[Symbol.dispose] = EpoxyClientOptions.prototype.free;
-var EpoxyHandlers = class {
+if (Symbol.dispose) Ep0zyClientOptions.prototype[Symbol.dispose] = Ep0zyClientOptions.prototype.free;
+var Ep0zyHandlers = class {
   __destroy_into_raw() {
     const ptr = this.__wbg_ptr;
     this.__wbg_ptr = 0;
-    EpoxyHandlersFinalization.unregister(this);
+    Ep0zyHandlersFinalization.unregister(this);
     return ptr;
   }
   free() {
@@ -727,23 +727,23 @@ var EpoxyHandlers = class {
   constructor(onopen, onclose, onerror, onmessage) {
     const ret = wasm.epoxyhandlers_new(addHeapObject(onopen), addHeapObject(onclose), addHeapObject(onerror), addHeapObject(onmessage));
     this.__wbg_ptr = ret >>> 0;
-    EpoxyHandlersFinalization.register(this, this.__wbg_ptr, this);
+    Ep0zyHandlersFinalization.register(this, this.__wbg_ptr, this);
     return this;
   }
 };
-if (Symbol.dispose) EpoxyHandlers.prototype[Symbol.dispose] = EpoxyHandlers.prototype.free;
-var EpoxyWebSocket = class _EpoxyWebSocket {
+if (Symbol.dispose) Ep0zyHandlers.prototype[Symbol.dispose] = Ep0zyHandlers.prototype.free;
+var Ep0zyWebSocket = class _Ep0zyWebSocket {
   static __wrap(ptr) {
     ptr = ptr >>> 0;
-    const obj = Object.create(_EpoxyWebSocket.prototype);
+    const obj = Object.create(_Ep0zyWebSocket.prototype);
     obj.__wbg_ptr = ptr;
-    EpoxyWebSocketFinalization.register(obj, obj.__wbg_ptr, obj);
+    Ep0zyWebSocketFinalization.register(obj, obj.__wbg_ptr, obj);
     return obj;
   }
   __destroy_into_raw() {
     const ptr = this.__wbg_ptr;
     this.__wbg_ptr = 0;
-    EpoxyWebSocketFinalization.unregister(this);
+    Ep0zyWebSocketFinalization.unregister(this);
     return ptr;
   }
   free() {
@@ -767,7 +767,7 @@ var EpoxyWebSocket = class _EpoxyWebSocket {
     return takeObject(ret);
   }
 };
-if (Symbol.dispose) EpoxyWebSocket.prototype[Symbol.dispose] = EpoxyWebSocket.prototype.free;
+if (Symbol.dispose) Ep0zyWebSocket.prototype[Symbol.dispose] = Ep0zyWebSocket.prototype.free;
 var IntoUnderlyingByteSource = class {
   __destroy_into_raw() {
     const ptr = this.__wbg_ptr;
@@ -1060,7 +1060,7 @@ function __wbg_get_imports() {
     getDataViewMemory0().setInt32(arg0 + 4 * 0, ptr1, true);
   };
   imports.wbg.__wbg_epoxywebsocket_new = function(arg0) {
-    const ret = EpoxyWebSocket.__wrap(arg0);
+    const ret = Ep0zyWebSocket.__wrap(arg0);
     return addHeapObject(ret);
   };
   imports.wbg.__wbg_error_252c7a73bcd9bfc8 = function(arg0, arg1) {
@@ -1511,7 +1511,7 @@ async function __wbg_init(module_or_path) {
     }
   }
   if (typeof module_or_path === "undefined") {
-    module_or_path = new URL("epoxy.wasm", import_meta.url);
+    module_or_path = new URL("ep0zy.wasm", import_meta.url);
   }
   const imports = __wbg_get_imports();
   if (typeof module_or_path === "string" || typeof Request === "function" && module_or_path instanceof Request || typeof URL === "function" && module_or_path instanceof URL) {
@@ -1520,7 +1520,7 @@ async function __wbg_init(module_or_path) {
   const { instance, module: module2 } = await __wbg_load(await module_or_path, imports);
   __wbg_finalize_init(instance, module2);
 }
-var epoxy_bundled_default = __wbg_init;
+var ep0zy_bundled_default = __wbg_init;
 var info = { version: "2.1.19-1", minimal: false, release: true, commit: "93d5a726894b2f16bad54c4a3801446cbbd22d26" };
 
 // src/main.ts
@@ -1549,11 +1549,11 @@ var NveTransport = class {
     if (this.opts[opt] != null) opts2[opt] = this.opts[opt];
   }
   async init() {
-    await epoxy_bundled_default();
-    let options = new EpoxyClientOptions();
+    await ep0zy_bundled_default();
+    let options = new Ep0zyClientOptions();
     options.user_agent = navigator.userAgent;
     opts.forEach((x) => this.setopt(options, x));
-    this.client = new EpoxyClient(this.wisp, options);
+    this.client = new Ep0zyClient(this.wisp, options);
     this.ready = true;
   }
   async meta() {
@@ -1598,7 +1598,7 @@ var NveTransport = class {
     }
   }
   connect(url, protocols, requestHeaders, onopen, onmessage, onclose, onerror) {
-    let handlers = new EpoxyHandlers(
+    let handlers = new Ep0zyHandlers(
       
       () => onopen("", ""),
       

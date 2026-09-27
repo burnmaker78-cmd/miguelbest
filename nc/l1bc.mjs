@@ -6,8 +6,8 @@ var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require
   throw Error('Dynamic require of "' + x + '" is not supported');
 });
 
-// node_modules/.pnpm/libcurl.js@0.7.4/node_modules/libcurl.js/libcurl_full.mjs
-var libcurl = function() {
+// node_modules/.pnpm/l1bc.js@0.7.4/node_modules/l1bc.js/l1bc_full.mjs
+var l1bc = function() {
   var Module = typeof Module != "undefined" ? Module : {};
   var moduleOverrides = Object.assign({}, Module);
   var arguments_ = [];
@@ -5569,10 +5569,10 @@ var libcurl = function() {
     510: "Not Extended",
     511: "Network Authentication Required"
   };
-  const copyright_notice = `libcurl.js is licensed under the GNU LGPL v3. You can find the license text and source code at the project's git repository: https://github.com/ading2210/libcurl.js
+  const copyright_notice = `l1bc.js is licensed under the GNU LGPL v3. You can find the license text and source code at the project's git repository: https://github.com/ading2210/l1bc.js
 
 Several C libraries are used, and their licenses are listed below:
-- libcurl: curl License (https://curl.se/docs/copyright.html)
+- l1bc: curl License (https://curl.se/docs/copyright.html)
 - mbedtls: Apache License 2.0 (https://github.com/Mbed-TLS/mbedtls/blob/development/LICENSE)
 - cjson: MIT License (https://github.com/DaveGamble/cJSON/blob/master/LICENSE)
 - zlib: zlib License (https://www.zlib.net/zlib_license.html)
@@ -5672,8 +5672,8 @@ Several C libraries are used, and their licenses are listed below:
       }, 0);
     }
     event_loop_func() {
-      let libcurl_active = _session_get_active(this.session_ptr);
-      if (libcurl_active || this.active_requests) {
+      let l1bc_active = _session_get_active(this.session_ptr);
+      if (l1bc_active || this.active_requests) {
         _session_perform(this.session_ptr);
       } else {
         clearInterval(this.event_loop);
@@ -5971,7 +5971,7 @@ Several C libraries are used, and their licenses are listed below:
         request_options.headers["Sec-Websocket-Protocol"] = this.protocols.join(", ");
       }
       if (this.options.verbose) {
-        request_options._libcurl_verbose = 1;
+        request_options._l1bc_verbose = 1;
       }
       this.http_handle = this.create_request(this.url, data_callback, finish_callback, headers_callback);
       c_func(_http_set_options, [this.http_handle, JSON.stringify(request_options), null, 0]);
@@ -6258,14 +6258,14 @@ Several C libraries are used, and their licenses are listed below:
   var version_dict = null;
   var api = null;
   var main_session = null;
-  const libcurl_version = "0.7.4";
+  const l1bc_version = "0.7.4";
   const wisp_version = "1.1.1";
   function check_loaded(check_websocket) {
     if (!wasm_ready) {
-      throw new Error("wasm not loaded yet, please call libcurl.load_wasm first");
+      throw new Error("wasm not loaded yet, please call l1bc.load_wasm first");
     }
     if (!websocket_url && check_websocket) {
-      throw new Error("websocket proxy url not set, please call libcurl.set_websocket");
+      throw new Error("websocket proxy url not set, please call l1bc.set_websocket");
     }
   }
   function set_websocket_url(url) {
@@ -6286,7 +6286,7 @@ Several C libraries are used, and their licenses are listed below:
     let version_str = UTF8ToString(version_ptr);
     _free(version_ptr);
     version_dict = JSON.parse(version_str);
-    version_dict.lib = libcurl_version;
+    version_dict.lib = l1bc_version;
     version_dict.wisp = wisp_version;
     return version_dict;
   }
@@ -6303,7 +6303,7 @@ Several C libraries are used, and their licenses are listed below:
     if (!main_session && websocket_url) {
       setup_main_session();
     }
-    let load_event = new Event("libcurl_load");
+    let load_event = new Event("l1bc_load");
     api.events.dispatchEvent(load_event);
     api.onload();
     if (ENVIRONMENT_IS_WEB) {
@@ -6311,7 +6311,7 @@ Several C libraries are used, and their licenses are listed below:
     }
   }
   function abort_callback(reason) {
-    let abort_event = new CustomEvent("libcurl_abort", { detail: reason });
+    let abort_event = new CustomEvent("l1bc_abort", { detail: reason });
     api.events.dispatchEvent(abort_event);
     if (ENVIRONMENT_IS_WEB) {
       document.dispatchEvent(abort_event);
@@ -6326,10 +6326,10 @@ Several C libraries are used, and their licenses are listed below:
     }
     return new Promise((resolve, reject) => {
       if (wasm_ready) return resolve();
-      api.events.addEventListener("libcurl_load", () => {
+      api.events.addEventListener("l1bc_load", () => {
         resolve();
       }, { once: true });
-      api.events.addEventListener("libcurl_abort", (event) => {
+      api.events.addEventListener("l1bc_abort", (event) => {
         reject(event.detail);
       }, { once: true });
     });
@@ -6393,7 +6393,7 @@ Several C libraries are used, and their licenses are listed below:
 }();
 
 // src/main.ts
-var LibcurlClient = class {
+var L1bcClient = class {
   session;
   wisp;
   proxy;
@@ -6424,24 +6424,24 @@ var LibcurlClient = class {
     }
   }
   async init() {
-    if (this.transport) libcurl.transport = this.transport;
-    if (!libcurl.ready) {
+    if (this.transport) l1bc.transport = this.transport;
+    if (!l1bc.ready) {
       await new Promise((resolve, reject) => {
-        libcurl.onload = () => {
-          console.log("loaded libcurl.js v" + libcurl.version.lib);
+        l1bc.onload = () => {
+          console.log("loaded l1bc.js v" + l1bc.version.lib);
           this.ready = true;
           resolve(null);
         };
       });
     }
-    libcurl.set_websocket(this.wisp);
-    this.session = new libcurl.HTTPSession({
+    l1bc.set_websocket(this.wisp);
+    this.session = new l1bc.HTTPSession({
       proxy: this.proxy
     });
     if (this.connections) this.session.set_connections(...this.connections);
-    this.ready = libcurl.ready;
+    this.ready = l1bc.ready;
     if (this.ready) {
-      console.log("running libcurl.js v" + libcurl.version.lib);
+      console.log("running l1bc.js v" + l1bc.version.lib);
       return;
     }
   }
@@ -6472,7 +6472,7 @@ var LibcurlClient = class {
     for (let [key, value] of requestHeaders) {
       headersObj[key] = value;
     }
-    let socket = new libcurl.WebSocket(url.toString(), protocols, {
+    let socket = new l1bc.WebSocket(url.toString(), protocols, {
       headers: headersObj
     });
     socket.binaryType = "arraybuffer";
@@ -6499,7 +6499,7 @@ var LibcurlClient = class {
   }
 };
 export {
-  LibcurlClient,
-  LibcurlClient as default
+  L1bcClient,
+  L1bcClient as default
 };
 
