@@ -87,15 +87,15 @@ class RpcHelper {
 
 
 },
-"./packages/core/dist/scramjet-external.mjs"(__unused_rspack___webpack_module__, __webpack_exports__, __webpack_require__) {
+"./packages/core/dist/nveframe-external.mjs"(__unused_rspack___webpack_module__, __webpack_exports__, __webpack_require__) {
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
   BareResponse: () => (BareResponse),
   CookieJar: () => (CookieJar),
   IncrementalHtmlRewriter: () => (IncrementalHtmlRewriter),
   Plugin: () => (Plugin),
-  SCRAMJETCLIENT: () => (SCRAMJETCLIENT),
-  SCRAMJETCLIENTNAME: () => (SCRAMJETCLIENTNAME),
+  NVEFRAMECLIENT: () => (NVEFRAMECLIENT),
+  NVEFRAMECLIENTNAME: () => (NVEFRAMECLIENTNAME),
   NveClient: () => (NveClient),
   NveFetchHandler: () => (NveFetchHandler),
   NveFetchTrackedClient: () => (NveFetchTrackedClient),
@@ -151,8 +151,8 @@ const {
 	CookieJar,
 	IncrementalHtmlRewriter,
 	Plugin,
-	SCRAMJETCLIENT,
-	SCRAMJETCLIENTNAME,
+	NVEFRAMECLIENT,
+	NVEFRAMECLIENTNAME,
 	NveClient,
 	NveFetchHandler,
 	NveFetchTrackedClient,
@@ -259,9 +259,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
   load: () => (load)
 });
-/* import */ var _mercuryworkshop_rpc__rspack_import_0 = __webpack_require__("./packages/rpc/index.ts");
+/* import */ var _nveworksfactory_rpc__rspack_import_0 = __webpack_require__("./packages/rpc/index.ts");
 /* import */ var _symbols__rspack_import_1 = __webpack_require__("./packages/controller/src/symbols.ts");
-/* import */ var _mercuryworkshop_scramjet__rspack_import_2 = __webpack_require__("./packages/core/dist/scramjet-external.mjs");
+/* import */ var _nveworksfactory_nveframe__rspack_import_2 = __webpack_require__("./packages/core/dist/nveframe-external.mjs");
 
 
 
@@ -283,7 +283,7 @@ class RemoteTransport {
     rpc;
     constructor(port){
         this.port = port;
-        this.rpc = new _mercuryworkshop_rpc__rspack_import_0.RpcHelper({
+        this.rpc = new _nveworksfactory_rpc__rspack_import_0.RpcHelper({
             ready: async ()=>{
                 this.readyResolve();
             }
@@ -366,8 +366,8 @@ class RemoteTransport {
 }
 const sw = navigator.serviceWorker.controller;
 function load(init) {
-    if (_mercuryworkshop_scramjet__rspack_import_2.SCRAMJETCLIENT in globalThis) {
-        globalThis[_mercuryworkshop_scramjet__rspack_import_2.SCRAMJETCLIENT].syncDocumentInit({
+    if (_nveworksfactory_nveframe__rspack_import_2.NVEFRAMECLIENT in globalThis) {
+        globalThis[_nveworksfactory_nveframe__rspack_import_2.NVEFRAMECLIENT].syncDocumentInit({
             initHeaders: init.initHeaders,
             history: init.history,
             cookies: init.cookies
@@ -379,7 +379,7 @@ function load(init) {
     }
     const wasm = Uint8Array.from(atob(self.WASM), (c)=>c.charCodeAt(0));
     delete self.WASM;
-    (0,_mercuryworkshop_scramjet__rspack_import_2.setWasm)(wasm);
+    (0,_nveworksfactory_nveframe__rspack_import_2.setWasm)(wasm);
     new ExecutionContextWrapper(globalThis, init);
 }
 function createFrameId() {
@@ -405,7 +405,7 @@ class ExecutionContextWrapper {
         }, [
             channel.port2
         ]);
-        this.cookieJar = new _mercuryworkshop_scramjet__rspack_import_2.CookieJar();
+        this.cookieJar = new _nveworksfactory_nveframe__rspack_import_2.CookieJar();
         this.cookieJar.load(this.init.cookies);
         this.handleServiceWorkerCookieMessage = (event)=>{
             if (!event.data?.$controller$setCookie || typeof event.data.$controller$setCookie !== "object") {
@@ -437,9 +437,9 @@ class ExecutionContextWrapper {
             }
         };
         navigator.serviceWorker?.addEventListener("message", this.handleServiceWorkerCookieMessage);
-        this.injectScramjet();
+        this.injectNveframe();
     }
-    injectScramjet() {
+    injectNveframe() {
         const frame = this.global.frameElement;
         if (frame && !frame.name) {
             window.name = frame.name = createFrameId();
@@ -450,7 +450,7 @@ class ExecutionContextWrapper {
             isTopLevel = false;
             let currentwin = this.global.window;
             while(currentwin.parent !== currentwin){
-                const currentclient = currentwin[_mercuryworkshop_scramjet__rspack_import_2.SCRAMJETCLIENT];
+                const currentclient = currentwin[_nveworksfactory_nveframe__rspack_import_2.NVEFRAMECLIENT];
                 if (!currentclient) {
                     currentwin = currentwin.parent.window;
                     continue;
@@ -473,7 +473,7 @@ class ExecutionContextWrapper {
                 codecDecode: this.init.codecDecode
             }
         };
-        this.client = new _mercuryworkshop_scramjet__rspack_import_2.NveClient(this.global, {
+        this.client = new _nveworksfactory_nveframe__rspack_import_2.NveClient(this.global, {
             context,
             transport: this.transport,
             sendSetCookie: async (cookies, options)=>{
@@ -497,9 +497,9 @@ class ExecutionContextWrapper {
             client: this.client,
             isTopLevel
         };
-        if (controllerFrame) _mercuryworkshop_scramjet__rspack_import_2.Tap.dispatch(controllerFrame.hooks.init.pre, frameInitContext, {});
+        if (controllerFrame) _nveworksfactory_nveframe__rspack_import_2.Tap.dispatch(controllerFrame.hooks.init.pre, frameInitContext, {});
         this.client.hook();
-        if (controllerFrame) _mercuryworkshop_scramjet__rspack_import_2.Tap.dispatch(controllerFrame.hooks.init.post, frameInitContext, {});
+        if (controllerFrame) _nveworksfactory_nveframe__rspack_import_2.Tap.dispatch(controllerFrame.hooks.init.post, frameInitContext, {});
     }
 }
 

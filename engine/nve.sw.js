@@ -135,7 +135,7 @@ __webpack_require__.d(__webpack_exports__, {
   route: () => (route),
   shouldRoute: () => (shouldRoute)
 });
-/* import */ var _mercuryworkshop_rpc__rspack_import_0 = __webpack_require__("./packages/rpc/index.ts");
+/* import */ var _nveworksfactory_rpc__rspack_import_0 = __webpack_require__("./packages/rpc/index.ts");
 /// <reference lib="WebWorker" />
 /// <reference types="@types/serviceworker" />
 
@@ -158,7 +158,6 @@ addEventListener("message", (e)=>{
         const { port, prefix } = e.data.$sw$initRemoteTransport;
         const relevantcontroller = tabs.find((tab)=>new URL(prefix).pathname.startsWith(tab.prefix));
         if (!relevantcontroller) {
-            console.error("No relevant controller found for transport init");
             return;
         }
         relevantcontroller.rpc.call("initRemoteTransport", port, [
@@ -173,7 +172,7 @@ class ControllerReference {
     constructor(prefix, id, port){
         this.prefix = prefix;
         this.id = id;
-        this.rpc = new _mercuryworkshop_rpc__rspack_import_0.RpcHelper({
+        this.rpc = new _nveworksfactory_rpc__rspack_import_0.RpcHelper({
             sendSetCookie: async ({ cookies, options })=>{
                 const clients1 = await self.clients.matchAll();
                 const ids = [];
@@ -251,7 +250,7 @@ addEventListener("message", (e)=>{
     if (typeof e.data != "object") return;
     if (!e.data.$controller$init) return;
     if (typeof e.data.$controller$init != "object") return;
-    const init = e.data.$controller$init;
+    const init = e.data.$controller$init; if (init.prefix && (init.prefix.indexOf("/~/sj/") !== -1 || init.prefix.indexOf("/nc-sj/") !== -1)) return;
     const existing = tabs.findIndex((t)=>t.id === init.id);
     if (existing !== -1) {
         tabs.splice(existing, 1);
