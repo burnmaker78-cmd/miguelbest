@@ -2,8 +2,8 @@ import re
 import base64
 import pathlib
 
-SRC = pathlib.Path("/root/novene/public")
-OUT = pathlib.Path("/root/novene-singlefile")
+SRC = pathlib.Path("/root/miguelbest/public")
+OUT = pathlib.Path("/root/miguelbest-singlefile")
 HOST = "https://frostedbrowser.cfd"
 
 def read(p):
